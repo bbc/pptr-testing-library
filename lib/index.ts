@@ -1,14 +1,9 @@
-import {readFileSync} from 'fs'
-import * as path from 'path'
 import {ElementHandle, EvaluateFn, JSHandle, Page} from 'puppeteer'
 import waitForExpect from 'wait-for-expect'
 
 import {IConfigureOptions, IQueryUtils, IScopedQueryUtils} from './typedefs'
 
-const domLibraryAsString = readFileSync(
-  path.join(__dirname, '../dom-testing-library.js'),
-  'utf8',
-).replace(/process.env/g, '{}')
+const domLibraryAsString = require('../dom-testing-library')
 
 /* istanbul ignore next */
 function mapArgument(o: any): any {
